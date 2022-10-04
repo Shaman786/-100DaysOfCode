@@ -1,3 +1,11 @@
+/*2D array is used to represent a sparse matrix in which there are three rows named as 
+
+Row: Index of row, where non-zero element is located
+Column: Index of column, where non-zero element is located
+Value: Value of the non zero element located at index – (row,column) */
+
+
+
 #include <iostream>
 
 using namespace std;
@@ -44,3 +52,9 @@ int main()
     }
     return 0;
 }
+
+
+/*Output
+ 0 0 1 1 3 3
+ 2 4 2 3 1 2
+ 3 4 5 7 2 6 */

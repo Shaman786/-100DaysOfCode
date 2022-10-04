@@ -15,6 +15,7 @@ Next node: Address of the next node
 
 // C++ program for sparse matrix representation.
 // Using Link list
+
 #include<iostream>
 using namespace std;
  
@@ -25,6 +26,8 @@ class Node
     int row;
     int col;
     int data;
+    int n;
+
     Node *next;
 };
  
@@ -103,6 +106,8 @@ int main()
                                { 0 , 0 , 5 , 7 , 0 },
                                { 0 , 0 , 0 , 0 , 0 },
                                { 0 , 2 , 6 , 0 , 0 } };
+                               int n;
+                               cin>>n;
      
     // Creating head/first node of list as NULL
     Node *first = NULL;
