@@ -5,6 +5,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Launch taxincome",
+      "request": "launch",
+      "mainClass": "taxincome",
+      "projectName": "#100DaysOfCode_2cea99c3"
+    },
+    {
       "name": "(lldb) Launch",
       "type": "cppdbg",
       "request": "launch",
@@ -28,7 +35,6 @@
       "externalConsole": false,
       "MIMode": "lldb"
     },
-    //cpp configuration
     {
       "name": "Launch Program",
       "type": "cppdbg",
