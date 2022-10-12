@@ -1,0 +1,90 @@
+// Implementation of Queue using Circular Double Linked List [Insert, Delete. &
+// Print]
+class queue_circular_Double_LinkedList
+{
+    class Node
+    {
+        int data;
+        Node next;
+        Node prev;
+    }
+    Node front, rear;
+    Queue()
+    {
+        front = rear = null;
+    }
+    void insert(int data)
+    {
+        Node temp = new Node();
+        temp.data = data;
+        if (front == null)
+        {
+            front = rear = temp;
+            front.next = rear.next = null;
+            front.prev = rear.prev = null;
+        }
+        else
+        {
+            rear.next = temp;
+            temp.prev = rear;
+            rear = temp;
+            rear.next = front;
+            front.prev = rear;
+        }
+    }
+    void delete()
+    {
+        if (front == null)
+        {
+            System.out.println("Queue is Empty");
+        }
+        else if (front == rear)
+        {
+            front = rear = null;
+        }
+        else
+        {
+            front = front.next;
+            front.prev = rear;
+            rear.next = front;
+        }
+    }
+    void print()
+    {
+        Node temp = front;
+        if (front == null)
+        {
+            System.out.println("Queue is Empty");
+        }
+        else
+        {
+            System.out.println("Queue is : ");
+            while (temp.next != front)
+            {
+                System.out.println(temp.data);
+                temp = temp.next;
+            }
+            System.out.println(temp.data);
+        }
+    }
+    public static void main(String[] args)
+    {
+        Queue q = new Queue();
+        q.insert(10);
+        q.insert(20);
+        q.insert(30);
+        q.insert(40);
+        q.insert(50);
+        q.print();
+        q.delete();
+        q.print();
+        q.delete();
+        q.print();
+        q.delete();
+        q.print();
+        q.delete();
+        q.print();
+        q.delete();
+        q.print();
+    }
+}

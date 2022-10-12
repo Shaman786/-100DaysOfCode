@@ -5,6 +5,7 @@
 // find mid element=(low+high)/2 , low = 0 , high = array.length-1
 
 #include <bits/stdc++.h>
+#include<iostream>
 
 using namespace std;
 
