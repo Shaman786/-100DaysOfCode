@@ -1,3 +1,0 @@
-/Users/fayajh/Desktop/coding/#100DaysOfCode/cmake-build-debug/CMakeFiles/_100DaysOfCode.dir
-/Users/fayajh/Desktop/coding/#100DaysOfCode/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/fayajh/Desktop/coding/#100DaysOfCode/cmake-build-debug/CMakeFiles/rebuild_cache.dir
