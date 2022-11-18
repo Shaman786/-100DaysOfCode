@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch Multi_thread",
+      "request": "launch",
+      "mainClass": "Day15.Multi_thread",
+      "projectName": "#100DaysOfCode_2cea99c3"
+    },
+    {
+      "type": "java",
       "name": "Launch taxincome",
       "request": "launch",
       "mainClass": "taxincome",
