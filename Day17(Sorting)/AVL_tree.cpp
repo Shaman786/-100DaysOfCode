@@ -203,8 +203,10 @@ Node *deleteNode(Node *root, int key)
 }
 
 // Print the tree
-void printTree(Node *root){
-    if(root != NULL){
+void printTree(Node *root)
+{
+    if (root != NULL)
+    {
         printTree(root->left);
         cout << root->key << " ";
         printTree(root->right);
@@ -229,13 +231,13 @@ int main()
         root = insertNode(root, arr[i]);
     }
     cout << "Tree after insertion: " << endl;
-    printTree(root);cout<<endl;
+    printTree(root);
+    cout << endl;
     int key;
     cout << "Enter the value of the node to be deleted: ";
     cin >> key;
     root = deleteNode(root, key);
     cout << "Tree after deletion: " << endl;
     printTree(root);
-    cout<<"In array form: ";
-
+    cout << "In array form: ";
 }
