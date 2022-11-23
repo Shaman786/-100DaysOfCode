@@ -65,3 +65,15 @@ int main()
     std::cout << "Sorted array is " << std::endl;
     printArray(array, n);
 }
+
+// Pseudocode
+//  1. radixSort(array, a)
+//  2. max <- getMax(array, a)
+//  3. for place <- 1 to max
+//  4.     countingSort(array, a, place)
+
+// explanation
+// 1. radixSort(array, a) is a function that takes an array and its size as arguments.
+// 2. max <- getMax(array, a) is a function that returns the maximum element in the array.
+// 3. for place <- 1 to max is a loop that runs from 1 to the maximum element in the array.
+// 4. countingSort(array, a, place) is a function that takes the array, its size and the place as arguments.

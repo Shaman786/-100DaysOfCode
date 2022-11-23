@@ -57,11 +57,11 @@ int main()
     printArray(arr, n);
 }
 
-//Psuedocode
-// HeapSort(A)
-// loop from i = n/2 - 1 to 0
-//     heapify(A, n, i)
-// loop from i = n-1 to 0
-//     swap(A[0], A[i])
+// Psuedocode
+//  HeapSort(A) - A is the array to be sorted
+//  loop from i = n/2 - 1 to 0 - loop to create a max heap
+//      heapify(A, n, i) - heapify the subtree rooted at i
+//  loop from i = n-1 to 0 - loop to extract elements from heap
+//      swap(A[0], A[i]) - swap the root(maximum element) with the last element
 
-//     heapify(A, i, 0)
+//     heapify(A, i, 0) - call max heapify on the reduced heap
