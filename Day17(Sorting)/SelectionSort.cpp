@@ -80,3 +80,9 @@ int main()
 // Enter the elements of the array: 1 1 1 1 1
 // Sorted array in Acsending Order:
 // 1 1 1 1 1
+
+// 3 incorrect outputs:
+// Enter the size of the array: 5
+// Enter the elements of the array: 1 2 3 4 5
+// Sorted array in Acsending Order:
+// 1 2 3 4 5
