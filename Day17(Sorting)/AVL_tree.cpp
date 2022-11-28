@@ -1,6 +1,6 @@
 // AVL tree implementation in C++
 
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Node
@@ -201,43 +201,205 @@ Node *deleteNode(Node *root, int key)
     }
     return root;
 }
+// insert a node
 
 // Print the tree
-void printTree(Node *root)
+void printTree(Node *root, string indent, bool last)
 {
-    if (root != NULL)
+    if (root != nullptr)
     {
-        printTree(root->left);
-        cout << root->key << " ";
-        printTree(root->right);
+        cout << indent;
+        if (last)
+        {
+            cout << "R----";
+            indent += "   ";
+        }
+        else
+        {
+            cout << "L----";
+            indent += "|  ";
+        }
+        cout << root->key << endl;
+        printTree(root->left, indent, false);
+        printTree(root->right, indent, true);
     }
 }
 
 int main()
 {
-    // user input
+    cout << "Enter the number of nodes in the tree: ";
     int n;
-    cout << "Enter the number of nodes: ";
     cin >> n;
-    int arr[n];
-    cout << "Enter the values of the nodes: ";
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
     Node *root = NULL;
+    cout << "Enter the nodes: ";
     for (int i = 0; i < n; i++)
     {
-        root = insertNode(root, arr[i]);
+        int x;
+        cin >> x;
+        root = insertNode(root, x);
     }
-    cout << "Tree after insertion: " << endl;
-    printTree(root);
-    cout << endl;
-    int key;
-    cout << "Enter the value of the node to be deleted: ";
-    cin >> key;
-    root = deleteNode(root, key);
-    cout << "Tree after deletion: " << endl;
-    printTree(root);
-    cout << "In array form: ";
+    cout << "Tree: " << endl;
+    printTree(root, "", true);
+    cout << "Choose an option: " << endl;
+    cout << "1. Insert a node" << endl;
+    cout << "2. Delete a node" << endl;
+    cout << "3. Exit" << endl;
+    int choice;
+    cin >> choice;
+    while (choice != 3)
+    {
+        if (choice == 1)
+        {
+            cout << "Enter the node to be inserted: ";
+            int x;
+            cin >> x;
+            root = insertNode(root, x);
+            cout << "Tree: " << endl;
+            printTree(root, "", true);
+            // back to menu
+            break;
+        }
+        else if (choice == 2)
+        {
+            cout << "Enter the node to be deleted: ";
+            int x;
+            cin >> x;
+            root = deleteNode(root, x);
+            cout << "Tree: " << endl;
+            printTree(root, "", true);
+            // back to menu
+            break;
+        }
+        else
+        {
+            cout << "Invalid choice" << endl;
+            break;
+        }
+    }
 }
+
+// psuedo code
+
+// 1. insertNode(node, key)
+// 2. if node is null
+// 3. return new node
+// 4. if key is less than node
+// 5. node.left = insertNode(node.left, key)
+// 6. else if key is greater than node
+// 7. node.right = insertNode(node.right, key)
+// 8. else
+// 9. return node
+// 10. node.height = 1 + max(height(node.left), height(node.right))
+// 11. balanceFactor = getBalanceFactor(node)
+// 12. if balanceFactor > 1
+// 13. if key < node.left.key
+// 14. return rightRotate(node)
+// 15. else if key > node.left.key
+// 16. node.left = leftRotate(node.left)
+// 17. return rightRotate(node)
+// 18. if balanceFactor < -1
+// 19. if key > node.right.key
+// 20. return leftRotate(node)
+// 21. else if key < node.right.key
+// 22. node.right = rightRotate(node.right)
+// 23. return leftRotate(node)
+// 24. return node
+
+// 1. deleteNode(node, key)
+// 2. if node is null
+// 3. return node
+// 4. if key is less than node
+// 5. node.left = deleteNode(node.left, key)
+// 6. else if key is greater than node
+// 7. node.right = deleteNode(node.right, key)
+// 8. else
+// 9. if node.left is null or node.right is null
+// 10. temp = node.left ? node.left : node.right
+// 11. if temp is null
+// 12. temp = node
+// 13. node = null
+// 14. else
+// 15. node = temp
+// 16. free(temp)
+// 17. else
+// 18. temp = nodeWithMimumValue(node.right)
+// 19. node.key = temp.key
+// 20. node.right = deleteNode(node.right, temp.key)
+// 21. if node is null
+// 22. return node
+// 23. node.height = 1 + max(height(node.left), height(node.right))
+// 24. balanceFactor = getBalanceFactor(node)
+// 25. if balanceFactor > 1
+// 26. if getBalanceFactor(node.left) >= 0
+// 27. return rightRotate(node)
+// 28. else
+// 29. node.left = leftRotate(node.left)
+// 30. return rightRotate(node)
+// 31. if balanceFactor < -1
+// 32. if getBalanceFactor(node.right) <= 0
+// 33. return leftRotate(node)
+// 34. else
+// 35. node.right = rightRotate(node.right)
+// 36. return leftRotate(node)
+// 37. return node
+
+// 1. insertNode(node, key)
+// 2. check if node is null
+// 3. if node is null
+// 4. return new node
+// 5. if key is less than node
+// 6. left node is inserted in the left subtree
+// 7. else if key is greater than node
+// 8. right node is inserted in the right subtree
+// 9. return node
+// 10. height of the node is updated
+// 11. balanceFactor is calculated using the height of the left and right subtree
+// 12. balanceFactor > 1 means the tree is left heavy
+// 13. key < node.left.key means the left subtree is left heavy
+// 14. return rightRotate(node)
+// 15. else key > node.left.key means the left subtree is right heavy
+// 16. left node is inserted in the left subtree
+// 17. return rightRotate(node)
+// 18. balanceFactor < -1 means the tree is right heavy
+// 19. key > node.right.key means the right subtree is right heavy
+// 20. return leftRotate(node)
+// 21. else key < node.right.key means the right subtree is left heavy
+// 22. right node is inserted in the right subtree
+// 23. return leftRotate(node)
+// 24. return node
+
+// 1. deleteNode(node, key)
+// 2. check if node is null
+// 3. if node is null
+// 4. return node
+// 5. if key is less than node
+// 6. left node is deleted in the left subtree
+// 7. else if key is greater than node
+// 8. right node is deleted in the right subtree
+// 9. else if left node is null or right node is null
+// 10 temp is assigned to the left node if it is not null else right node
+// 11. if temp is null
+// 12. temp is assigned to the node
+// 13. node is assigned to null
+// 14. else node is assigned to temp
+// 15. free(temp)
+// 16. else temp is assigned to the node with minimum value in the right subtree
+// 17. node is assigned to temp
+// 18. right node is deleted in the right subtree
+// 19. if node is null
+// 20. return node
+// 21. height of the node is updated
+// 22. balanceFactor is calculated using the height of the left and right subtree
+// 23. balanceFactor > 1 means the tree is left heavy
+// 24. getBalanceFactor(node.left) >= 0 means the left subtree is left heavy
+// 25. return rightRotate(node)
+// 26. else getBalanceFactor(node.left) < 0 means the left subtree is right heavy
+// 27. left node is deleted in the left subtree
+// 28. return rightRotate(node)
+// 29. balanceFactor < -1 means the tree is right heavy
+// 30. getBalanceFactor(node.right) <= 0 means the right subtree is right heavy
+// 31. return leftRotate(node)
+// 32. else getBalanceFactor(node.right) > 0 means the right subtree is left heavy
+// 33. right node is deleted in the right subtree
+// 34. return leftRotate(node)
+// 35. return node
