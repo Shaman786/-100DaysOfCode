@@ -1,14 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void update(int **p)
+void update(int **p2)
 {
-    p = p + 1;
-    // kuch change hoga??
-    //  *p = *p + 1;
-    // kuch change hoga??
-    // **p = **p + 1;
-    // kuch change hoga??
+    // p = p + 1;
+    // kuch change hoga?? - No
+    // *p2 = *p2 + 1;
+    // kuch change hoga?? - Yes
+    **p2 = **p2 + 1;
+    // kuch change hoga?? - Yes
 }
 
 int main()
