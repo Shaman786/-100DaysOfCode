@@ -70,5 +70,6 @@
     "valarray": "cpp"
   },
   "cmake.configureOnOpen": true,
-  "liveServer.settings.port": 5501
+  "liveServer.settings.port": 5501,
+  "cmake.sourceDirectory": "${workspaceFolder}/Day17(Sorting)"
 }
